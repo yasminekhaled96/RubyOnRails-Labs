@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!
-    # load_and_authorize_resource
+    load_and_authorize_resource
     #new method
     def new
         @article = Article.new
