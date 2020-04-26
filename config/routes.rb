@@ -1,12 +1,11 @@
 
 Rails.application.routes.draw do
-   match ':controller(/:action(/:id))(.:format)'
-  root :to => 'sessions#login'
-  match "signup", :to => "users#new"
-  match "login", :to => "sessions#login"
-  match "logout", :to => "sessions#logout"
-  match "home", :to => "sessions#home"
-  
+  get 'users/new'
+  get 'users/create'
+  resources :users, only: [:new, :create]   
+  get 'login', to: 'sessions#new'   
+  post 'login', to: 'sessions#create'   
+  get 'welcome', to: 'sessions#welcome'
   resources :articles do
     resources :comments
   end
