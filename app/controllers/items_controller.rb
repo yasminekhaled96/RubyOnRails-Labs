@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   def show
+    @item = Item.find(params[:id])
     render json: @item
   end
 
@@ -49,3 +50,4 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:name, :description)
     end
 end
+# curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODgwODk2ODJ9.WATFnrytwrfm6VXATcyTb1vK22FwdonKO_m58g9axIQ" http://localhost:3000/items
